@@ -35,5 +35,5 @@ test('renders login button', () => {
 test('clicking home takes you to home screen', () => { })
 test('clicking plants takes you to the plants page', () => { })
 test('clicking the login button takes you to the login', () => { })
-test('renders logout button after login')
+test('renders logout button after login', () => {})
 test('clicking profile button takes you to the profile page', () => { })
