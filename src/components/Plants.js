@@ -1,7 +1,6 @@
 const Plants = () => {
-    return(
-        <div>Plants</div>
+    return (
+        <div style={{ height: "500px", width: "500px" }}>Plants</div>
     )
-}
-
+};
 export default Plants; 

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 const NavigationBar = () => {
     return (
         <>
-            <Navbar fixed="top" bg="dark" variant="dark">
+            <Navbar sticky="top" bg="dark" variant="dark">
                 <Navbar.Brand>Nav Brand</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
@@ -18,6 +18,5 @@ const NavigationBar = () => {
             </Navbar>
         </>
     )
-}
-
-export default NavigationBar
+};
+export default NavigationBar;
