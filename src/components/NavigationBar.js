@@ -1,8 +1,24 @@
+import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 
 const NavigationBar = () => {
+    // this should actually be a redux state check 
+    const [logged, setLogged] = useState(false)
+
+    const loginOrLogoutButton = () => {
+        if (logged) {
+            return (
+                <Button>Logout</Button>
+            )
+        } else {
+            return (
+                <Button>Login</Button>
+            )
+        }
+    }
+
     return (
         <>
             <Navbar sticky="top" bg="dark" variant="dark">
@@ -14,7 +30,7 @@ const NavigationBar = () => {
                     <Nav.Link href="/profile">Profile</Nav.Link>
                 </Nav>
                 {/* login will be a popup  */}
-                <Button>Login</Button>
+                {loginOrLogoutButton()}
             </Navbar>
         </>
     )

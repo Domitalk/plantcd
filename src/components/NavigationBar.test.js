@@ -17,9 +17,9 @@ test('renders profile button', () => {
     const profileButton = screen.getByText(/profile/i)
     expect(profileButton).toBeInTheDocument()
 })
-test('renders login button', () => {
+test('renders either login or logout button', () => {
     render(<NavigationBar />)
-    const loginButton = screen.getByText(/login/i)
+    const loginButton = screen.getByText(/log/i)
     expect(loginButton).toBeInTheDocument()
 })
 
