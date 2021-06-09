@@ -1,12 +1,12 @@
 import './App.css';
-import Button from 'react-bootstrap/Button'
+import NavigationBar from './components/NavigationBar.js'
 
 function App() {
   return (
-    <div>
-      <Button variant="primary">Primary</Button>{' '}
+    <>
+        <NavigationBar></NavigationBar>
 
-    </div>
+    </>
   );
 }
 
