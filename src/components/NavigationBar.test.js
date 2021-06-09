@@ -11,13 +11,16 @@ test('renders plants button', () => {
     render(<NavigationBar />)
     const plantsButton = screen.getByText(/plants/i)
     expect(plantsButton).toBeInTheDocument()
-
+})
+test('renders profile button', () => {
+    render(<NavigationBar />)
+    const profileButton = screen.getByText(/profile/i)
+    expect(profileButton).toBeInTheDocument()
 })
 test('renders login button', () => {
     render(<NavigationBar />)
     const loginButton = screen.getByText(/login/i)
     expect(loginButton).toBeInTheDocument()
-
 })
 
 // button behaviors 
@@ -27,4 +30,3 @@ test('renders login button', () => {
 // test('clicking the login button takes you to the login', () => { })
 // test('renders logout button after login', () => {})
 // test('clicking profile button takes you to the profile page', () => { })
-// test('renders profile button', () => { })
