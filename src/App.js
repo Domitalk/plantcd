@@ -21,11 +21,10 @@ function App() {
         <Route path="/">
           <HomeScreen />
         </Route>
-        </Switch>
+      </Switch>
+      {/* <div style={{ height: "500px", width: "500px", background: "#000000" }}></div>
       <div style={{ height: "500px", width: "500px", background: "#000000" }}></div>
-      <div style={{ height: "500px", width: "500px", background: "#000000" }}></div>
-      <div style={{ height: "500px", width: "500px", background: "#000000" }}></div>
-
+      <div style={{ height: "500px", width: "500px", background: "#000000" }}></div> */}
     </>
   );
 }
