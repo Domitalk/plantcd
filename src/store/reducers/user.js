@@ -4,6 +4,9 @@ import {
     TOGGLE_LOG
 } from '../actions/user'
 
+
+
+
 const initialState = {
     user_name: 'no_name',
     log_status: false
@@ -30,7 +33,7 @@ const userReducer = (state = initialState, action) => {
         default:
             return state 
     }
-    
+
 }
 
 export default userReducer; 

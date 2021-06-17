@@ -22,7 +22,9 @@ const HomeScreen = () => {
     return (
         <div style={{ height: "500px", width: "500px" }}>HomeScreen
             <p>USER'S NAME: {user_name} </p>
+
             <button onClick={testUserNameDispatch}>test user_name</button>
+            
             <button onClick={clearUserName}>clear user_name</button>
 
             <button onClick={toggleLogStatus}>toggle log_status</button>
