@@ -3,12 +3,21 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 
+import { useSelector, useDispatch } from 'react-redux'
+
 const NavigationBar = () => {
     // this should actually be a redux state check 
-    const [logged, setLogged] = useState(false)
+    // const [logged, setLogged] = useState(false)
+
+    const dispatch = useDispatch();
+    const { log_status } = useSelector(state => state)
+    
+    const toggleLog = () => {
+        dispatch({ type: 'TOGGLE_LOG' })
+    }
 
     const loginOrLogoutButton = () => {
-        if (logged) {
+        if (log_status) {
             return (
                 <Button>Logout</Button>
             )
