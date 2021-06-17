@@ -1,21 +1,36 @@
-// import {
-//     SET_USER
-// } from '../actions/user'
+import {
+    SET_USER,
+    CLEAR_NAME,
+    TOGGLE_LOG
+} from '../actions/user'
 
-// const intialState = {
-//     user_id: '',
-//     user_name: '',
-// }
+const initialState = {
+    user_name: 'no_name',
+    log_status: false
+}
 
-// const userReducer = (state = intialState, action) => {
-//     switch(action.type) {
-//         case SET_USER:
-//             return {
-//                 ...state,
-//                 user_id: action.user_id,
-//                 user_name: action.user_name
-//             }
-//     }
-// }
+const userReducer = (state = initialState, action) => {
 
-// export default userReducer
+    switch (action.type) {
+        case SET_USER:
+            return {
+                ...state,
+                user_name: 'reducer_called_test_name'
+            }
+        case CLEAR_NAME:
+            return {
+                ...state,
+                user_name: 'no_name'
+            }
+        case TOGGLE_LOG:
+            return {
+                ...state,
+                log_status: !state.log_status
+            }
+        default:
+            return state 
+    }
+    
+}
+
+export default userReducer; 

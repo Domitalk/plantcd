@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 const HomeScreen = () => {
     // make a dummy testing for user_name 
     const dispatch = useDispatch()
-    const { user_name } = useSelector(state => state)
+    const { user_name } = useSelector(state => state.user)
+    const { dummy } = useSelector(state => state.dummy )
     
 
     const testUserNameDispatch = () => {
@@ -25,6 +26,8 @@ const HomeScreen = () => {
             <button onClick={clearUserName}>clear user_name</button>
 
             <button onClick={toggleLogStatus}>toggle log_status</button>
+
+            <p>DUMMY TEST: {dummy} </p>
         </div>
 
     )

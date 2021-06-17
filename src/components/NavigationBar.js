@@ -10,7 +10,7 @@ const NavigationBar = () => {
     // const [logged, setLogged] = useState(false)
 
     const dispatch = useDispatch();
-    const { log_status } = useSelector(state => state)
+    const { log_status } = useSelector(state => state.user)
     
     const toggleLog = () => {
         dispatch({ type: 'TOGGLE_LOG' })
