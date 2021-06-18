@@ -1,32 +1,36 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+// import { useSelector, useDispatch } from 'react-redux'
+
+import LogModal from './LogModal'
+
+
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 
-import { useSelector, useDispatch } from 'react-redux'
 
 const NavigationBar = () => {
     // this should actually be a redux state check 
     // const [logged, setLogged] = useState(false)
 
-    const dispatch = useDispatch();
-    const { log_status } = useSelector(state => state.user)
+    // const dispatch = useDispatch();
+    // const { log_status } = useSelector(state => state.user)
     
-    const toggleLog = () => {
-        dispatch({ type: 'TOGGLE_LOG' })
-    }
+    // const toggleLog = () => {
+    //     dispatch({ type: 'TOGGLE_LOG' })
+    // }
 
-    const loginOrLogoutButton = () => {
-        if (log_status) {
-            return (
-                <Button>Logout</Button>
-            )
-        } else {
-            return (
-                <Button>Login</Button>
-            )
-        }
-    }
+    // const loginOrLogoutButton = () => {
+    //     if (log_status) {
+    //         return (
+    //             <Button>Logout</Button>
+    //         )
+    //     } else {
+    //         return (
+    //             <Button>Login</Button>
+    //         )
+    //     }
+    // }
 
     return (
         <>
@@ -39,7 +43,8 @@ const NavigationBar = () => {
                     <Nav.Link href="/profile">Profile</Nav.Link>
                 </Nav>
                 {/* login will be a popup  */}
-                {loginOrLogoutButton()}
+                {/* {loginOrLogoutButton()} */}
+                <LogModal/>
             </Navbar>
         </>
     )
