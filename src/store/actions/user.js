@@ -20,6 +20,7 @@ export const createUser = (userInfo) => {
         // figure out how to payload the rData and change the reducer function that corresponds 
         dispatch({ 
             type: SET_USER,
+            userInfo: rData
         })
     }
 }

@@ -18,7 +18,7 @@ const userReducer = (state = initialState, action) => {
         case SET_USER:
             return {
                 ...state,
-                user_name: 'reducer_called_test_name'
+                user_name: action.userInfo.user_name
             }
         case CLEAR_NAME:
             return {

@@ -6,9 +6,18 @@ const HomeScreen = () => {
     const { user_name } = useSelector(state => state.user)
     const { dummy } = useSelector(state => state.dummy )
     
+    const testUserInfo = {
+        user_name: 'test_user_name',
+        first_name: 'test_first_name',
+        middle_name: 'test_middle_name',
+        last_name: 'test_last_name'
+    }
 
-    const testUserNameDispatch = () => {
-        dispatch({ type: 'SET_USER' })
+    const testUserNameDispatch = (userInfo) => {
+        dispatch({
+            type: 'SET_USER',
+            userInfo: testUserInfo
+        })
     }
 
     const clearUserName = () => {
@@ -30,6 +39,8 @@ const HomeScreen = () => {
             <button onClick={toggleLogStatus}>toggle log_status</button>
 
             <p>DUMMY TEST: {dummy} </p>
+
+
         </div>
 
     )

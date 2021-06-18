@@ -7,10 +7,10 @@ Next steps
 
 
 TO DO 
-    PLAN - USER object and corresponding data associated with it 
+    <!-- PLAN - USER object and corresponding data associated with it  -->
 
-    MAKE - Backend Rails 
+    <!-- MAKE - Backend Rails  -->
 
-    GO BACK TO - ./store/actions/user
+    <!-- GO BACK TO - ./store/actions/user -->
 
-    NEXT - make createUser UI and form fields for input on calling the action to create 
+    NEXT - make createUser UI and form fields for input on calling the action to create AKA login modal 
