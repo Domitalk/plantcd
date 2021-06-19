@@ -1,10 +1,9 @@
 import {
     SET_USER,
     CLEAR_NAME,
-    TOGGLE_LOG
+    TOGGLE_LOG,
+    SIGN_IN
 } from '../actions/user'
-
-
 
 
 const initialState = {
@@ -30,6 +29,10 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 log_status: !state.log_status
             }
+        // case SIGN_IN:
+        //     return {
+
+        //     }
         default:
             return state 
     }

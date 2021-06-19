@@ -1,10 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 
+import * as userActions from '../store/actions/user.js'
+
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const LogForm = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [form, setForm] = useState({
         email: '',
         password: ''
@@ -19,6 +22,16 @@ const LogForm = () => {
     // how to use 
     // <Form.Label>Name</Form.Label>
     // <Form.Control type='text' onChange={ e => setField('name', e.target.value) }/>
+
+    const handleSubmit = () => {
+
+        // dispatch(eventsActions.createEvent(currentUserId, latitude, longitude))
+        dispatch(userActions.createUser(form))
+        setForm({
+            email: '',
+            password: ''
+        })
+    }
 
     console.log(form)
     return (
@@ -46,8 +59,8 @@ const LogForm = () => {
                         onChange={e => setField('password', e.target.value)}
                     />
                 </Form.Group>
-
             </Form.Row>
+            <Button onClick={handleSubmit}>Submit</Button>
         </Form>
     )
 }
