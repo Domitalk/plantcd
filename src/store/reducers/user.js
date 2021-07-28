@@ -8,6 +8,7 @@ import {
 
 const initialState = {
     user_name: 'no_name',
+    jwt: '',
     log_status: false
 }
 
