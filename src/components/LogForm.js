@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 
-import * as userActions from '../store/actions/user.js'
+import { loginUser } from '../store/actions/user.js'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -26,14 +26,14 @@ const LogForm = () => {
     const handleSubmit = () => {
 
         // dispatch(eventsActions.createEvent(currentUserId, latitude, longitude))
-        dispatch(userActions.createUser(form))
+        dispatch(loginUser(form))
         setForm({
             email: '',
             password: ''
         })
     }
 
-    console.log(form)
+    // console.log(form)
     return (
         <Form>
             <Form.Row>

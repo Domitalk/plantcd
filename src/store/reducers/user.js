@@ -18,7 +18,8 @@ const userReducer = (state = initialState, action) => {
         case SET_USER:
             return {
                 ...state,
-                user_name: action.userInfo.user_name
+                user_name: action.userInfo.user.user_name,
+                jwt: action.userInfo.jwt
             }
         case CLEAR_NAME:
             return {
@@ -37,6 +38,7 @@ const userReducer = (state = initialState, action) => {
         default:
             return state 
     }
+    console.log("user/reducer", state)
 
 }
 

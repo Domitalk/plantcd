@@ -1,5 +1,9 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
+// just to test state everytime 
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
 
 import NavigationBar from './components/NavigationBar.js'
 import Plants from './components/Plants.js'
@@ -7,6 +11,12 @@ import HomeScreen from './components/HomeScreen.js'
 import Profile from './components/Profile.js'
 
 function App() {
+  // just to test state everytime 
+  const testingState = useSelector(state => state)
+  useEffect(() => {
+    console.log("App.js state", testingState)
+  })
+
   return (
     <>
       <NavigationBar />
