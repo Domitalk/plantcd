@@ -1,8 +1,7 @@
 import {
     SET_USER,
     CLEAR_NAME,
-    TOGGLE_LOG,
-    SIGN_IN
+    TOGGLE_LOG
 } from '../actions/user'
 
 
@@ -39,7 +38,6 @@ const userReducer = (state = initialState, action) => {
         default:
             return state 
     }
-    console.log("user/reducer", state)
 
 }
 

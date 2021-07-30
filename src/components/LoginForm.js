@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
 import { loginUser } from '../store/actions/user.js'
@@ -6,7 +6,7 @@ import { loginUser } from '../store/actions/user.js'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-const LogForm = () => {
+const LoginForm = () => {
     const dispatch = useDispatch();
     const [form, setForm] = useState({
         email: '',
@@ -19,13 +19,8 @@ const LogForm = () => {
             [field]: value 
         })
     }
-    // how to use 
-    // <Form.Label>Name</Form.Label>
-    // <Form.Control type='text' onChange={ e => setField('name', e.target.value) }/>
 
     const handleSubmit = () => {
-
-        // dispatch(eventsActions.createEvent(currentUserId, latitude, longitude))
         dispatch(loginUser(form))
         setForm({
             email: '',
@@ -33,7 +28,6 @@ const LogForm = () => {
         })
     }
 
-    // console.log(form)
     return (
         <Form>
             <Form.Row>
@@ -65,4 +59,4 @@ const LogForm = () => {
     )
 }
 
-export default LogForm; 
+export default LoginForm; 

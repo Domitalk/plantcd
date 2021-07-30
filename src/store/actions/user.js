@@ -3,7 +3,6 @@ import BackendAddress from '../../constants/BackendAddress'
 export const SET_USER = 'SET_USER';
 export const CLEAR_NAME = 'CLEAR_NAME';
 export const TOGGLE_LOG = 'TOGGLE_LOG';
-export const SIGN_IN = 'SIGN_IN'
 
 export const loginUser = (userInfo) => {
     const user_name = userInfo.email

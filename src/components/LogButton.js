@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
-import LogForm from './LogForm'
+import LoginForm from './LoginForm'
 
 const LogButton = () => {
     // const dispatch = useDispatch();
@@ -17,8 +17,6 @@ const LogButton = () => {
 
     const showLoginOrLogoutButton = () => {
         if (log_status) {
-            // need to change onClick for what happens on logout 
-            // aka create dialog for are you sure you want to log out and dispatch if confirmed
             return <Button onClick={handleLogout}>Logout</Button>
         } else {
             return <Button onClick={handleShow}>Login</Button>
@@ -26,7 +24,8 @@ const LogButton = () => {
     }
 
     const handleLogout = () => {
-        
+        // aka create dialog for are you sure you want to log out and dispatch if confirmed
+
 
     }
 
@@ -38,7 +37,7 @@ const LogButton = () => {
                     <Modal.Title>Plantcd</Modal.Title>
                 </Modal.Header> */}
                 <Modal.Body>
-                    <LogForm/>
+                    <LoginForm/>
                 </Modal.Body>
                 <Modal.Footer>
                     smaller font, centered, greyed out 
