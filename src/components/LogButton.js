@@ -8,7 +8,6 @@ import LogForm from './LogForm'
 
 const LogButton = () => {
     // const dispatch = useDispatch();
-
     const [show, setShow] = useState(false)
 
     const { log_status } = useSelector(state => state.user)
@@ -16,13 +15,24 @@ const LogButton = () => {
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    // const toggleLog = () => {
-    //     dispatch({ type: 'TOGGLE_LOG' })
-    // }
+    const showLoginOrLogoutButton = () => {
+        if (log_status) {
+            // need to change onClick for what happens on logout 
+            // aka create dialog for are you sure you want to log out and dispatch if confirmed
+            return <Button onClick={handleLogout}>Logout</Button>
+        } else {
+            return <Button onClick={handleShow}>Login</Button>
+        }
+    }
+
+    const handleLogout = () => {
+        
+
+    }
 
     return (
         <>
-            <Button onClick={handleShow}>{log_status? `Logout` : `Login` }</Button>
+            {showLoginOrLogoutButton()}
             <Modal show={show} onHide={handleClose}>
                 {/* <Modal.Header closeButton>
                     <Modal.Title>Plantcd</Modal.Title>

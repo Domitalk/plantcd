@@ -19,7 +19,8 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 user_name: action.userInfo.user.user_name,
-                jwt: action.userInfo.jwt
+                jwt: action.userInfo.jwt,
+                log_status: true
             }
         case CLEAR_NAME:
             return {
