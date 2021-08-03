@@ -1,19 +1,37 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
+import { loginUser } from '../store/actions/user.js'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-
-import LoginForm from './LoginForm'
+import Form from 'react-bootstrap/Form'
 
 const LogButton = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+
     const [show, setShow] = useState(false)
+    const [form, setForm] = useState({
+        email: '',
+        password: ''
+    })
+
+    const [formSelection, setFormSelection] = useState("login")
+
+    const setField = (field, value) => {
+        setForm({
+            ...form,
+            [field]: value
+        })
+    }
 
     const { log_status } = useSelector(state => state.user)
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+
+    const handleLogout = () => {
+        // aka create dialog for are you sure you want to log out and dispatch if confirmed
+    }
 
     const showLoginOrLogoutButton = () => {
         if (log_status) {
@@ -23,10 +41,109 @@ const LogButton = () => {
         }
     }
 
-    const handleLogout = () => {
-        // aka create dialog for are you sure you want to log out and dispatch if confirmed
+    const handleSubmit = () => {
+        dispatch(loginUser(form))
+        setForm({
+            email: '',
+            password: ''
+        })
+    }
 
+    const handleSignup = () => {
+        // Must create a dispatch for Signup and import it 
+        dispatch()
+        setForm({
+            email: '',
+            password: ''
+        })
+    }
 
+    const showLoginOrSignupOrForgotPassword = () => {
+        if (formSelection === "signup") {
+            return (
+                <Form>
+                    <Form.Row>
+                        <Form.Group>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type='email'
+                                name='email'
+                                placeholder='Email'
+                                value={form.email}
+                                onChange={e => setField('email', e.target.value)}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type='password'
+                                name='password'
+                                placeholder='Password'
+                                value={form.password}
+                                onChange={e => setField('password', e.target.value)}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group>
+                            <Form.Label>Confirm Password</Form.Label>
+                            <Form.Control
+                                type='password'
+                                name='password'
+                                placeholder='Password'
+                                value={form.password}
+                                onChange={e => setField('password', e.target.value)}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+
+                    <Button onClick={handleSignup}>Sign Up</Button>
+                </Form>
+            )
+        } else if (formSelection === "forgot") {
+
+        } else {
+            // login
+            return (
+                <Form>
+                    <Form.Row>
+                        <Form.Group>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type='email'
+                                name='email'
+                                placeholder='Email'
+                                value={form.email}
+                                onChange={e => setField('email', e.target.value)}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type='password'
+                                name='password'
+                                placeholder='Password'
+                                value={form.password}
+                                onChange={e => setField('password', e.target.value)}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+                    <Button onClick={handleSubmit}>Sign in</Button>
+                </Form>
+            )
+        }
+    }
+
+    const showProperModalFooter = () => {
+        
+    }
+
+    const handleChangeStateOfFormSelectionToSignup = () => {
+        setFormSelection("signup")
     }
 
     return (
@@ -37,12 +154,10 @@ const LogButton = () => {
                     <Modal.Title>Plantcd</Modal.Title>
                 </Modal.Header> */}
                 <Modal.Body>
-                    <LoginForm/>
+                    {showLoginOrSignupOrForgotPassword()}
                 </Modal.Body>
                 <Modal.Footer>
-                    smaller font, centered, greyed out 
-                    forgot password?
-                    link to a diff page and closeout the modal? or just swap what is shown?
+                    New to Plantcd? <button className="link-button" onClick={handleChangeStateOfFormSelectionToSignup}>Create an account</button>
                 </Modal.Footer>
             </Modal>
         </>
