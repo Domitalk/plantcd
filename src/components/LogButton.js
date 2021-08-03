@@ -58,6 +58,15 @@ const LogButton = () => {
         })
     }
 
+    const handleForgot = () => {
+        // Must create a dispatch for Forgot password and import it 
+        dispatch()
+        setForm({
+            email: '',
+            password: ''
+        })
+    }
+
     const showLoginOrSignupOrForgotPassword = () => {
         if (formSelection === "signup") {
             return (
@@ -103,6 +112,23 @@ const LogButton = () => {
                 </Form>
             )
         } else if (formSelection === "forgot") {
+            return (
+                <Form>
+                    <Form.Row>
+                        <Form.Group>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type='email'
+                                name='email'
+                                placeholder='Email'
+                                value={form.email}
+                                onChange={e => setField('email', e.target.value)}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+                    <Button onClick={handleForgot}>Reset Password</Button>
+                </Form>
+            )
 
         } else {
             // login
@@ -122,7 +148,7 @@ const LogButton = () => {
                     </Form.Row>
                     <Form.Row>
                         <Form.Group>
-                            <Form.Label>Password</Form.Label>
+                            <Form.Label>Password <button className="link-button-password" onClick={() => handleChangeFormSelection("forgot")}>forgot password?</button></Form.Label>
                             <Form.Control
                                 type='password'
                                 name='password'
@@ -139,11 +165,23 @@ const LogButton = () => {
     }
 
     const showProperModalFooter = () => {
-        
+        if (formSelection === "login") {
+            return (
+                <Modal.Footer>
+                    New to Plantcd? <button className="link-button" onClick={() => handleChangeFormSelection("signup")}>Create an account</button>
+                </Modal.Footer>
+            )
+        } else {
+            return (
+                <Modal.Footer>
+                    <button className="link-button" onClick={() => handleChangeFormSelection("login")}>Back to login</button>
+                </Modal.Footer>
+            )
+        }
     }
 
-    const handleChangeStateOfFormSelectionToSignup = () => {
-        setFormSelection("signup")
+    const handleChangeFormSelection = (newSelection) => {
+        setFormSelection(newSelection)
     }
 
     return (
@@ -156,9 +194,7 @@ const LogButton = () => {
                 <Modal.Body>
                     {showLoginOrSignupOrForgotPassword()}
                 </Modal.Body>
-                <Modal.Footer>
-                    New to Plantcd? <button className="link-button" onClick={handleChangeStateOfFormSelectionToSignup}>Create an account</button>
-                </Modal.Footer>
+                    {showProperModalFooter()}
             </Modal>
         </>
     )
