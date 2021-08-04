@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { loginUser } from '../store/actions/user.js'
+import { loginUser, createUser } from '../store/actions/user.js'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
@@ -47,15 +47,17 @@ const LogButton = () => {
             email: '',
             password: ''
         })
+        setShow(false)
     }
 
     const handleSignup = () => {
         // Must create a dispatch for Signup and import it 
-        dispatch()
+        dispatch(createUser(form))
         setForm({
             email: '',
             password: ''
         })
+        setShow(false)
     }
 
     const handleForgot = () => {
