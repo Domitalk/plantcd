@@ -1,14 +1,12 @@
 import BackendAddress from '../../constants/BackendAddress'
 
 export const SET_USER = 'SET_USER';
-export const CLEAR_NAME = 'CLEAR_NAME';
-export const TOGGLE_LOG = 'TOGGLE_LOG';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const loginUser = (userInfo) => {
     const user_name = userInfo.email
     const password = userInfo.password
-    
+
     return async dispatch => {
         const response = await fetch(`${BackendAddress.API}/login`, {
             method: 'POST',
