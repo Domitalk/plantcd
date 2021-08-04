@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { loginUser, createUser } from '../store/actions/user.js'
+import { loginUser, createUser, logoutUser } from '../store/actions/user.js'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
@@ -31,6 +31,9 @@ const LogButton = () => {
 
     const handleLogout = () => {
         // aka create dialog for are you sure you want to log out and dispatch if confirmed
+        dispatch(logoutUser())
+        setFormSelection("login")
+        
     }
 
     const showLoginOrLogoutButton = () => {

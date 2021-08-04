@@ -1,7 +1,8 @@
 import {
     SET_USER,
     CLEAR_NAME,
-    TOGGLE_LOG
+    TOGGLE_LOG,
+    LOGOUT_USER
 } from '../actions/user'
 
 
@@ -31,10 +32,12 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 log_status: !state.log_status
             }
-        // case SIGN_IN:
-        //     return {
-
-        //     }
+        case LOGOUT_USER:
+            return {
+                user_name: 'user logged out',
+                jwt: '',
+                log_status: false
+            }
         default:
             return state 
     }
