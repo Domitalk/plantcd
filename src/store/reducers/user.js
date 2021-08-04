@@ -7,8 +7,8 @@ import {
 
 
 const initialState = {
-    user_name: 'no_name',
-    jwt: '',
+    user_name: 'intialState name',
+    jwt: 'intialState jwt',
     log_status: false
 }
 

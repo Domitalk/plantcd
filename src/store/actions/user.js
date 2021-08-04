@@ -8,6 +8,7 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const loginUser = (userInfo) => {
     const user_name = userInfo.email
     const password = userInfo.password
+    
     return async dispatch => {
         const response = await fetch(`${BackendAddress.API}/login`, {
             method: 'POST',
@@ -22,7 +23,6 @@ export const loginUser = (userInfo) => {
             })
         })
         const rData = await response.json()
-        // console.log("actions/users if createUser worked and setItem Async worked", rData)
 
         dispatch({ 
             type: SET_USER,
@@ -48,7 +48,7 @@ export const createUser = (userInfo) => {
             })
         })
         const rData = await response.json()
-        console.log("actions/users if createUser worked and setItem Async worked", rData)
+        // console.log("actions/users if createUser worked and setItem Async worked", rData)
 
         dispatch({
             type: SET_USER,
@@ -60,8 +60,7 @@ export const createUser = (userInfo) => {
 export const logoutUser = () => {
     return async dispatch => {
         dispatch({
-            type: LOGOUT_USER,
-            userInfo: {}
+            type: LOGOUT_USER
         })
     }
 }
