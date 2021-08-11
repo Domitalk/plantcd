@@ -6,8 +6,20 @@ import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import Card from 'react-bootstrap/Card'
 
+
+// TODO
+// 1. fix the size of the card OR max height / width ?
+// 2. fix size of the profile image
+// 3. round the image
+// 4. center the image
+// 5. find pencil aka edit image
+// 6. position it to the top right corner
+// 7. name field center
+// 8. descriptors field center 
+
 const Profile = () => {
 
+    // testing the effect of styled on react bootstrap
     const ProfileCard = styled(Card)`
         border-color: red;
     `;
