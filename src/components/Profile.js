@@ -6,14 +6,9 @@ import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import Card from 'react-bootstrap/Card'
 
+import { Gear } from 'react-bootstrap-icons';
 
 // TODO
-// 1. fix the size of the card OR max height / width ?
-// 2. fix size of the profile image
-// 3. round the image
-// 4. center the image
-// 5. find pencil aka edit image
-// 6. position it to the top right corner
 // 7. name field center
 // 8. descriptors field center 
 
@@ -21,17 +16,45 @@ const Profile = () => {
 
     // testing the effect of styled on react bootstrap
     const ProfileCard = styled(Card)`
-        border-color: red;
+        width: 300px;
+        height: 600px; 
     `;
 
+    const ProfileImage = styled(Image)`
+        width: 260px;
+        height: 260px;
+        align-self: center;
+        object-fit: cover;
+    `;
+    
+    const GearOnTopRight = styled(Gear)`
+        margin-top: 2px;
+        margin-right: 2px;
+        align-self: flex-end; 
+    `;
+
+    const CenteredCardTitle = styled(Card.Title)`
+        margin-top: 10px;
+        align-self: center;
+    `
+
+    const CenteredCardText = styled(Card.Text)`
+        align-self: center;
+        text-align: center; 
+    `
 
     return (
         <div>
-            profile page container contains the entire page 
             <div>
                 <ProfileCard>
-                    <Image src="https://domitalk.s3.us-east-2.amazonaws.com/20200923_151615.jpg" rounded fluid />
-
+                    <GearOnTopRight />
+                    <ProfileImage src="https://domitalk.s3.us-east-2.amazonaws.com/20200923_151615.jpg" roundedCircle />
+                    <CenteredCardTitle>
+                        FirstName LastName
+                    </CenteredCardTitle>
+                    <CenteredCardText>
+                        Summary Text Summary Text Summary Text Summary Text Summary Text
+                    </CenteredCardText>
                 </ProfileCard>
             </div>
         </div>
